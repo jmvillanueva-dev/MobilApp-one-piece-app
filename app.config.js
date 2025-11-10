@@ -60,8 +60,7 @@ export default ({ config }) => {
       },
       edgeToEdgeEnabled: true,
       predictiveBackGestureEnabled: false,
-      // 🔑 ¡Asegúrate de definir aquí tu "package" de Android si no lo está!
-      // package: "com.tunombredeusuario.onepieceapp"
+      package: "com.jmvillanueva.onepieceapp"
     },
     web: {
       ...baseExpoConfig.web,
