@@ -6,13 +6,16 @@ import { Fruit } from "../../domain/entities/Fruit.model";
  * Función helper para convertir texto a lowercase de manera segura
  */
 const safeToLowerCase = (text: string | null | undefined): string => {
-  return text ? text.toLowerCase() : '';
+  return text ? text.toLowerCase() : "";
 };
 
 /**
  * Función helper para verificar si un texto incluye el término de búsqueda de manera segura
  */
-const safeIncludes = (text: string | null | undefined, searchTerm: string): boolean => {
+const safeIncludes = (
+  text: string | null | undefined,
+  searchTerm: string
+): boolean => {
   return text ? text.toLowerCase().includes(searchTerm) : false;
 };
 
