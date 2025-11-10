@@ -1,21 +1,23 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  ActivityIndicator,
-  TextInput,
-  TouchableOpacity,
-  Alert,
-  ScrollView,
-  KeyboardAvoidingView,
-  Platform,
-} from "react-native";
-import { useState, useEffect } from "react";
 import { useAuthContext } from "@/src/presentation/contexts/AuthContext";
 import { Ionicons } from "@expo/vector-icons";
+import { router } from "expo-router";
+import { useEffect, useState } from "react";
+import {
+  ActivityIndicator,
+  Alert,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 export default function ProfileScreen() {
-  const { user, loading, updateProfile, error, clearError } = useAuthContext();
+  const { user, loading, updateProfile, error, clearError, logout } =
+    useAuthContext();
   const [displayName, setDisplayName] = useState("");
   const [isUpdating, setIsUpdating] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -64,6 +66,29 @@ export default function ProfileScreen() {
   const handleCancelEdit = () => {
     setDisplayName(user?.displayName || "");
     setIsEditing(false);
+  };
+
+  const handleLogout = async () => {
+    Alert.alert(
+      "Cerrar Sesión",
+      "¿Estás seguro de que quieres cerrar sesión?",
+      [
+        {
+          text: "Cancelar",
+          style: "cancel",
+        },
+        {
+          text: "Cerrar Sesión",
+          style: "destructive",
+          onPress: async () => {
+            const success = await logout();
+            if (success) {
+              router.replace("/(auth)/login");
+            }
+          },
+        },
+      ]
+    );
   };
 
   const getInitials = (name: string) => {
@@ -231,6 +256,14 @@ export default function ProfileScreen() {
             <Text style={styles.statValue}>Cuenta verificada</Text>
             <Text style={styles.statLabel}>Estado</Text>
           </View>
+        </View>
+
+        {/* Botón de Cerrar Sesión */}
+        <View style={styles.logoutSection}>
+          <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
+            <Ionicons name="log-out-outline" size={24} color="#FF3B30" />
+            <Text style={styles.logoutButtonText}>Cerrar Sesión</Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
@@ -452,5 +485,30 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "#666",
     marginTop: 4,
+  },
+  logoutSection: {
+    margin: 20,
+    marginTop: 10,
+  },
+  logoutButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#FFF",
+    borderRadius: 16,
+    padding: 16,
+    borderWidth: 2,
+    borderColor: "#FF3B30",
+    shadowColor: "#FF3B30",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 4,
+  },
+  logoutButtonText: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#FF3B30",
+    marginLeft: 8,
   },
 });
