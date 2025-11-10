@@ -11,9 +11,19 @@ export default function TabsLayout() {
           name="explore"
           options={{
             headerShown: false,
-            title: "Explorador",
+            title: "Inicio",
             tabBarIcon: ({ color }) => (
               <FontAwesome name="list" size={24} color={color} />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="index"
+          options={{
+            headerShown: false,
+            title: "Personajes",
+            tabBarIcon: ({ color }) => (
+              <FontAwesome name="users" size={24} color={color} />
             ),
           }}
         />
@@ -23,7 +33,7 @@ export default function TabsLayout() {
             headerShown: false,
             title: "Profile",
             tabBarIcon: ({ color }) => (
-              <FontAwesome name="user" size={24} color={color} />
+              <FontAwesome name="id-card" size={24} color={color} />
             ),
           }}
         />
