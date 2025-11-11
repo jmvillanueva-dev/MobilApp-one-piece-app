@@ -1,50 +1,67 @@
-# Welcome to your Expo app 👋
+# ☠️ One Piece Explorer — App móvil con Firebase y Axios
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## 🧭 Descripción general
+**One Piece Explorer** es una aplicación móvil construida con **React Native** y **Expo**, diseñada como una experiencia interactiva para los fanáticos del universo *One Piece* en **YouTube**.  
+Permite explorar personajes, tripulaciones y frutas del diablo del anime, ofreciendo una interfaz moderna, rápida y segura.
 
-## Get started
+La app utiliza **Firebase** para autenticación y almacenamiento en la nube, y **Axios** para el consumo de servicios externos, garantizando datos actualizados y un rendimiento óptimo.  
+Está estructurada bajo los principios de **Clean Architecture**, con capas separadas de dominio, datos y presentación, logrando una base sólida y mantenible.
 
-1. Install dependencies
+---
 
-   ```bash
-   npm install
-   ```
+## ⚙️ Tecnologías principales
+- ⚛️ **React Native** (con Expo SDK 54)
+- 🔥 **Firebase Authentication & Firestore**
+- 🌐 **Axios** para consumo de API
+- 📱 **Expo Router** para navegación basada en archivos
+- 💡 **TypeScript** para tipado estático y mantenibilidad
+- 🧩 **Context API + Hooks personalizados** para gestión de estado
+- 🧱 **Arquitectura limpia (Clean Architecture)**
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
+## 🚀 Instalación y ejecución
 ```bash
-npm run reset-project
+# 1. Instalar dependencias
+npm install
+
+# 2. Iniciar el proyecto en modo desarrollo
+npx expo start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Puedes ejecutar la app en:
+- Dispositivo físico mediante **Expo Go**
+- Emulador de Android o iOS
+- Web (modo experimental)
 
-## Learn more
+---
 
-To learn more about developing your project with Expo, look at the following resources:
+## 🔐 Funcionalidades principales
+- Registro, inicio de sesión y restablecimiento de contraseña con **Firebase Auth**
+- Exploración de **personajes** con imágenes dinámicas
+- Visualización de **frutas del diablo** con filtros y búsqueda avanzada
+- Edición de perfil de usuario
+- Sincronización de datos en tiempo real
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+---
 
-## Join the community
+## 🧰 Estructura del proyecto
+El proyecto está organizado en capas siguiendo el patrón **Clean Architecture**:
 
-Join our community of developers creating universal apps.
+```
+src/
+ ├── data/         # Conexión con APIs, Firebase y repositorios
+ ├── domain/       # Entidades, repositorios e interfaces de negocio
+ ├── presentation/ # Hooks, contextos y componentes visuales
+ └── di/           # Contenedor de dependencias
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+
+## 🌍 Repositorio
+🔗 [jmvillanueva-dev-mobilapp-one-piece-app](https://github.com/jmvillanueva-dev-mobilapp-one-piece-app)
+
+---
+
+## 🏷️ Labels
+`#ReactNative` `#Expo` `#Firebase` `#Axios` `#CleanArchitecture` `#YouTubeApp` `#MobileApp` `#TypeScript`
